@@ -39,9 +39,9 @@ import exceptions.SaleAlreadyExistException;
 public class DataAccess {
     private EntityManager db;
     private EntityManagerFactory emf;
-    private static final int baseSize = 160;
+    private static final int BASE_SIZE = 160;
 
-    private static final String basePath="src/main/resources/images/";
+    private static final String BASE_PATH="src/main/resources/images/";
 
     ConfigXML c=ConfigXML.getInstance();
 
