@@ -21,12 +21,14 @@ import java.awt.Image;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  * It implements the business logic as a web service.
  */
 @WebService(endpointInterface = "businessLogic.BLFacade")
 public class BLFacadeImplementation  implements BLFacade {
+	private static final Logger LOGGER = Logger.getLogger(BLFacadeImplementation.class.getName());
 	 private static final int baseSize = 160;
 
 		private static final String basePath="src/main/resources/images/";
@@ -106,7 +108,7 @@ public class BLFacadeImplementation  implements BLFacade {
         try {
             return ImageIO.read(image);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error al leer el fichero", e);
         }
         return null;
     }
