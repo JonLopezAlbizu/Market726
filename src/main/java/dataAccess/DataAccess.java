@@ -112,20 +112,21 @@ public class DataAccess {
     }
     
     public Sale createSale(String title, String description, int status, float price, Date pubDate, String sellerEmail, File file) throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
+        String etiquetas= "Etiquetas";
         System.out.println(">> DataAccess: createProduct=> title= "+title+" seller="+sellerEmail);
         try {
             if(pubDate.before(UtilDate.trim(new Date()))) {
-                throw new MustBeLaterThanTodayException(ResourceBundle.getBundle("Etiquetas").getString("DataAccess.ErrorSaleMustBeLaterThanToday"));
+                throw new MustBeLaterThanTodayException(ResourceBundle.getBundle(etiquetas).getString("DataAccess.ErrorSaleMustBeLaterThanToday"));
             }
             if (file==null)
-                throw new FileNotUploadedException(ResourceBundle.getBundle("Etiquetas").getString("DataAccess.ErrorFileNotUploadedException"));
+                throw new FileNotUploadedException(ResourceBundle.getBundle(etiquetas).getString("DataAccess.ErrorFileNotUploadedException"));
 
             db.getTransaction().begin();
             
             Seller seller = db.find(Seller.class, sellerEmail);
             if (seller.doesSaleExist(title)) {
                 db.getTransaction().commit();
-                throw new SaleAlreadyExistException(ResourceBundle.getBundle("Etiquetas").getString("DataAccess.SaleAlreadyExist"));
+                throw new SaleAlreadyExistException(ResourceBundle.getBundle(etiquetas).getString("DataAccess.SaleAlreadyExist"));
             }
 
             Sale sale = seller.addSale(title, description, status, price, pubDate, file);
