@@ -39,7 +39,7 @@ var MIN_RESULTS = 3;
 var MAX_RESULTS = 500;
 var UNNAMED = "<Unnamed>";
 function escapeHtml(str) {
-    return str.replaceAll(/</g, "&lt;").replaceAll(/>/g, "&gt;");
+    return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 function getHighlightedText(item, matcher, fallbackMatcher) {
     var escapedItem = escapeHtml(item);
