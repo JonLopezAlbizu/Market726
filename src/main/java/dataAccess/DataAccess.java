@@ -188,7 +188,7 @@ public class DataAccess {
     }
 
     public BufferedImage getFile(String fileName) {
-        File file=new File(basePath+fileName);
+        File file=new File(BASE_PATH+fileName);
         BufferedImage targetImg=null;
         try {
              targetImg = rescale(ImageIO.read(file));
