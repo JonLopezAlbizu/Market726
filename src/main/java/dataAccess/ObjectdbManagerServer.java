@@ -23,13 +23,13 @@ import java.io.Serializable;
 /**
  * It runs the database server as a separate process.
  */
-public class ObjectdbManagerServer extends JDialog implements Serializable {
+public class ObjectdbManagerServer extends JDialog  {
 
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	JTextArea textArea;
-	private transient ConfigXML c;
+	ConfigXML c;
 	
 	//For windows
     private String objectDbpath="src\\main\\resources\\objectdb.jar";
