@@ -17,12 +17,12 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import java.io.Serializable;
+
 
 /**
  * It runs the database server as a separate process.
  */
-public class ObjectdbManagerServer extends JDialog  implements Serializable{
+public class ObjectdbManagerServer extends JDialog  {
 
 
 	private static final long serialVersionUID = 1L;
@@ -102,7 +102,7 @@ public class ObjectdbManagerServer extends JDialog  implements Serializable{
 			}
 		}
 		
-		ConfigXML c=ConfigXML.getInstance();
+		c=ConfigXML.getInstance();
 		
 		if (c.isDatabaseLocal()) {
 			textArea.append("\nERROR, the database is configured as local");
