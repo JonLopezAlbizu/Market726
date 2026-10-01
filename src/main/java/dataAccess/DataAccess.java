@@ -200,9 +200,9 @@ public class DataAccess {
     
     public BufferedImage rescale(BufferedImage originalImage) {
         System.out.println("rescale "+originalImage);
-        BufferedImage resizedImage = new BufferedImage(baseSize, baseSize, BufferedImage.TYPE_INT_RGB);
+        BufferedImage resizedImage = new BufferedImage(BASE_SIZE, BASE_SIZE, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = resizedImage.createGraphics();
-        g.drawImage(originalImage, 0, 0, baseSize, baseSize, null);
+        g.drawImage(originalImage, 0, 0, BASE_SIZE, BASE_SIZE, null);
         g.dispose();
         return resizedImage;
     }
@@ -388,7 +388,7 @@ public class DataAccess {
                 return false;
             }
             
-            sale.getSalaketak().removeIf(s -> s.getId() == salaketa.getId());
+            sale.getSalaketak().removeIf(s -> s.getId().equals(salaketa.getId()));
 
             Salaketa s = db.find(Salaketa.class, salaketa.getId());
             if (s != null) {
