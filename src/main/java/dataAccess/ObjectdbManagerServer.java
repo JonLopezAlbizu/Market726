@@ -28,7 +28,7 @@ public class ObjectdbManagerServer extends JDialog  implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	JTextArea textArea;
-	private ConfigXML c;
+	private transient ConfigXML c;
 	
 	//For windows
     private String objectDbpath="src\\main\\resources\\objectdb.jar";
