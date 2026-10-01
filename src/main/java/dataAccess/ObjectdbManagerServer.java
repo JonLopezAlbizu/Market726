@@ -17,12 +17,12 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
+import java.io.Serializable;
 
 /**
  * It runs the database server as a separate process.
  */
-public class ObjectdbManagerServer extends JDialog  {
+public class ObjectdbManagerServer extends JDialog  implements Serializable{
 
 
 	private static final long serialVersionUID = 1L;
